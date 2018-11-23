@@ -1,0 +1,5 @@
+[build]
+	functions = "assistant/assistant"
+  command = "npm i -gs yarn lerna && yarn && yarn build"
+  publish = "frontend/public"
+

@@ -1,0 +1,19 @@
+{
+  "name": "startup-starter-kit",
+  "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "dev": "npm run develop",
+    "develop": "lerna run --parallel develop",
+    "format": "lerna run format",
+    "graphql-deploy": "lerna run graphql-deploy",
+    "studio-deploy": "cd backend && npm run studio-deploy",
+    "postinstall": "lerna bootstrap",
+    "init-sanity": "cd backend && npm run init-sanity && echo 'Next up: Deploy the graphql API with \"npm run graphql-deploy\"'",
+    "start": "npm run develop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "lerna": "^3.5.1"
+  }
+}
