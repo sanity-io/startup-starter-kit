@@ -1,0 +1,4 @@
+[build]
+	functions = "assistant"
+  command = "npm run build"
+
