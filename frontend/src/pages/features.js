@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Hero from '../components/hero'
 import Layout from '../components/layout'
 import SiteNavContainer from '../containers/site-nav'
 
-const IndexPage = () => (
+const SecondPage = () => (
   <Layout>
     <SiteNavContainer
       siteTitle="TechFuge"
@@ -18,15 +17,10 @@ const IndexPage = () => (
       }}
     />
 
-    <Hero
-      headline="My awesome headline that explains the whole shebang"
-      intro={
-        <>
-          <p>My awesome intro that explains the whole shebang.</p>
-        </>
-      }
-    />
+    <h1>Features</h1>
+    <p>Welcome to page 2</p>
+    <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
 
-export default IndexPage
+export default SecondPage

@@ -1,0 +1,81 @@
+.root {
+  background: #000;
+  color: #fff;
+  display: flex;
+  padding: 1rem;
+}
+
+.root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.siteTitle {
+  font-weight: 700;
+}
+
+@media (max-width: 599px) {
+  .siteTitle {
+    flex: 1;
+  }
+}
+
+.menu {
+
+}
+
+@media (max-width: 599px) {
+  .menu {
+    position: relative;
+  }
+}
+
+.menu ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 599px) {
+  .menu ol {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    right: 0;
+  }
+
+  .menu[data-is-expanded="true"] ol {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+  .menu ol {
+    display: flex;
+  }
+}
+
+.menu ol a {
+  display: block;
+  padding: 0.5rem;
+}
+
+.menuOverflowButton {
+  -webkit-font-smoothing: inherit;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  width: 1.666rem;
+}
+
+@media (min-width: 600px) {
+  .menuOverflowButton {
+    display: none;
+  }
+}

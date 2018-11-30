@@ -1,6 +1,12 @@
 .root {
-  background: #000;
+  background: #222;
   color: #fff;
+  padding: 1rem;
+}
+
+.container {
+  max-width: 30em;
+  margin: 0 auto;
 }
 
 .headline {
