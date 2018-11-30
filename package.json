@@ -2,6 +2,7 @@
   "name": "startup-starter-kit",
   "private": true,
   "scripts": {
+    "dev": "npm run develop",
     "develop": "lerna run --parallel develop",
     "postinstall": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1"
