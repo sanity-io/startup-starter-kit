@@ -1,0 +1,12 @@
+{
+  "name": "startup-starter-kit",
+  "private": true,
+  "scripts": {
+    "develop": "lerna run --parallel develop",
+    "postinstall": "lerna bootstrap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "lerna": "^3.5.1"
+  }
+}
