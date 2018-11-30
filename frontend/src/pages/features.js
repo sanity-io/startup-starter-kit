@@ -1,26 +1,28 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Layout from '../containers/Layout'
+import SiteNav from '../containers/SiteNav'
+import { ThemeContext } from '../contexts'
 
-import Layout from '../components/layout'
-import SiteNavContainer from '../containers/site-nav'
-
-const SecondPage = () => (
-  <Layout>
-    <SiteNavContainer
-      siteTitle="TechFuge"
-      menu={{
-        items: [
-          { key: 'home', to: '/', label: 'Home' },
-          { key: 'features', to: '/features/', label: 'Features' },
-          { key: 'pricing', to: '/pricing/', label: 'Pricing' },
-        ],
-      }}
-    />
-
-    <h1>Features</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
+const FeaturesPage = ({ data }) => (
+  <ThemeContext.Provider value={data.site.siteMetadata.theme}>
+    <Layout>
+      <SiteNav />
+      <h1>Features</h1>
+    </Layout>
+  </ThemeContext.Provider>
 )
 
-export default SecondPage
+export default FeaturesPage
+
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        theme {
+          background
+          color
+        }
+      }
+    }
+  }
+`

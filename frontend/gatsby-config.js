@@ -1,8 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: 'MyStartup',
+    theme: {
+      background: '#fff',
+      color: '#000',
+    },
   },
   plugins: [
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-typography',
