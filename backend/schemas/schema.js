@@ -5,7 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 // Schema utilities
 import { convertToSharedSection } from './utilities'
-
+import sharedSection from './sections/sharedSections'
 import * as sections from './sections'
 import * as components from './components'
 import * as types from './types'
@@ -18,6 +18,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    sharedSection,
     ...Object.values(documents),
     ...Object.values(types),
     ...Object.values(components),
