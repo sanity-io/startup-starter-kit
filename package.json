@@ -8,5 +8,6 @@
   },
   "devDependencies": {
     "lerna": "^3.5.1"
-  }
+  },
+  "dependencies": {}
 }
