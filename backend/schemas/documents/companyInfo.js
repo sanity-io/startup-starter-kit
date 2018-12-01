@@ -5,11 +5,7 @@ export default {
   type: 'document',
   title: 'companyInfo',
   icon: MdDomain,
-  fields: [{
-      name: 'name',
-      type: 'string',
-      title: 'Name',
-    },
+  fields: [
     {
       name: 'brand',
       type: 'brand'

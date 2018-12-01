@@ -1,3 +1,6 @@
+export { default as agent } from './agent'
 export { default as companyInfo } from './companyInfo'
+export { default as intent } from './intent'
 export { default as page } from './page'
 export { default as route } from './route'
+export { default as fulfillment } from './fulfillment'
