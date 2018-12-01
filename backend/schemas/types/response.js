@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-/* import STEditor from '../customization/STEditor' */
+import STEditor from '../../previewComponents/SSMLeditor/STEditor'
 
 export default {
   title: 'Response',
   name: 'response',
   type: 'array',
-  /* inputComponent: STEditor, */
+  inputComponent: STEditor,
   of: [
     {
       title: 'Block',
