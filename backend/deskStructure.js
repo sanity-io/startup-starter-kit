@@ -7,6 +7,9 @@ const hiddenTypes = [
   "companyInfo",
   "page",
   "route",
+  "intent",
+  "agent",
+  "fulfillment",
   ...Object.values(components).reduce((acc, {name}) => ([...acc, name, `shared.${name}`]), []),
   ...Object.values(sections).reduce((acc, {name}) => ([...acc, name, `shared.${name}`]), [])
 ]
@@ -30,6 +33,7 @@ export default () =>
     .items([
       S.listItem()
         .title("Company Info")
+        .schemaType("companyInfo")
         .child(
           S.editor()
             .id('companyInfo')
@@ -38,6 +42,7 @@ export default () =>
         ),
       S.listItem()
       .title('Website')
+      .schemaType("page")
       .child(
         S.list()
         .title("Website")
@@ -50,6 +55,27 @@ export default () =>
           /* ...Object.values(sections).reduce(makeDocumentsAndObjects, []).map(name => S.documentTypeListItem(name).title(name)) */
         ])
       ),
+      S.listItem()
+        .title('Assistant')
+        .schemaType("agent")
+        .child(
+          S.list()
+          .title('Assistant')
+          .id('assistant')
+          .items([
+            S.listItem()
+            .title("Agent")
+            .schemaType("agent")
+            .child(
+              S.editor()
+                .id('agent')
+                .schemaType("agent")
+                .documentId("agent")
+              ),
+            S.documentTypeListItem('intent').title('Intents'),
+            S.documentTypeListItem('fulfillment').title('Fulfillments'),
+          ])
+        ),
       ...S.documentTypeListItems()
         .filter(hiddenDocTypes)
     ])
