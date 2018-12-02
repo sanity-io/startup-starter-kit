@@ -13,15 +13,15 @@ const data = {
       text: 'bar',
     },
     {
-      key: 'bar',
+      key: 'baz',
       text: 'bar',
     },
     {
-      key: 'bar',
+      key: 'quz',
       text: 'bar',
     },
     {
-      key: 'bar',
+      key: 'qur',
       text: 'bar',
     },
   ],

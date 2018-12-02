@@ -1,16 +1,20 @@
 import React from 'react'
 import SiteNav from '../components/SiteNav'
-import { ThemeContext } from '../contexts'
+import { ModalStackContext, ThemeContext } from '../contexts'
 
 class SiteNavContainer extends React.Component {
-  static contextType = ThemeContext
-
   state = {
-    isMenuExpanded: false,
+    isMenuOpen: false,
   }
 
-  handleExpandMenu = () => {
-    this.setState(state => ({ isMenuExpanded: !state.isMenuExpanded }))
+  handleOpenMenu = incr => {
+    incr()
+    this.setState({ isMenuOpen: true })
+  }
+
+  handleCloseMenu = decr => {
+    decr()
+    this.setState({ isMenuOpen: false })
   }
 
   render() {
@@ -27,13 +31,22 @@ class SiteNavContainer extends React.Component {
     }
 
     return (
-      <SiteNav
-        {...data}
-        {...this.props}
-        {...this.state}
-        onExpandMenu={this.handleExpandMenu}
-        theme={this.context}
-      />
+      <ModalStackContext.Consumer>
+        {({ incr, decr }) => (
+          <ThemeContext.Consumer>
+            {theme => (
+              <SiteNav
+                {...data}
+                {...this.props}
+                {...this.state}
+                onOpenMenu={() => this.handleOpenMenu(incr)}
+                onCloseMenu={() => this.handleCloseMenu(decr)}
+                theme={theme}
+              />
+            )}
+          </ThemeContext.Consumer>
+        )}
+      </ModalStackContext.Consumer>
     )
   }
 }

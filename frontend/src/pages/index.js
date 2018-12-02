@@ -9,38 +9,43 @@ import SiteFooter from '../containers/SiteFooter'
 import SiteNav from '../containers/SiteNav'
 import TestimonialCarousel from '../containers/TestimonialCarousel'
 import { ThemeContext } from '../contexts'
+import ModalStackProvider from '../providers/ModalStack'
 
 const IndexPage = ({ data }) => (
-  <ThemeContext.Provider value={data.site.siteMetadata.theme}>
-    <Layout>
-      <ImageBackground>
-        <SiteNav invert />
-        <Hero
-          headline="My awesome headline that explains the whole shebang"
-          intro={
-            <>
-              <p>My awesome intro that explains the whole shebang.</p>
-            </>
-          }
-          invert
-        />
-      </ImageBackground>
-      <LatestUpdates />
-      <h2
-        style={{
-          maxWidth: 864,
-          margin: '0 auto',
-          padding: '1rem',
-          textAlign: 'center',
-        }}
-      >
-        Testimonials
-      </h2>
-      <TestimonialCarousel />
-      <GetStarted />
-      <SiteFooter />
-    </Layout>
-  </ThemeContext.Provider>
+  <ModalStackProvider>
+    {modalStackDepth => (
+      <ThemeContext.Provider value={data.site.siteMetadata.theme}>
+        <Layout overlay={modalStackDepth > 0}>
+          <ImageBackground>
+            <SiteNav invert />
+            <Hero
+              headline="My awesome headline that explains the whole shebang"
+              intro={
+                <>
+                  <p>My awesome intro that explains the whole shebang.</p>
+                </>
+              }
+              invert
+            />
+          </ImageBackground>
+          <LatestUpdates />
+          <h2
+            style={{
+              maxWidth: 864,
+              margin: '0 auto',
+              padding: '1rem',
+              textAlign: 'center',
+            }}
+          >
+            Testimonials
+          </h2>
+          <TestimonialCarousel />
+          <GetStarted />
+          <SiteFooter />
+        </Layout>
+      </ThemeContext.Provider>
+    )}
+  </ModalStackProvider>
 )
 
 export default IndexPage

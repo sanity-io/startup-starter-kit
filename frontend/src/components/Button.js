@@ -21,9 +21,9 @@ const StyledLinkButton = styled(Link)`
 `
 
 const StyledButton = styled.button`
-  ${props => `
-    background: ${props.theme.background};
-    color: ${props.theme.color};
+  ${({ invert, theme }) => `
+    background: ${theme.background};
+    color: ${theme.color};
   `};
   padding: 0.5rem 1rem;
   border-radius: 6px;

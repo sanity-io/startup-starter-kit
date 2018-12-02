@@ -36,6 +36,7 @@ const GetStarted = ({ headline, callToActions, intro, theme }) => (
       <div>
         {callToActions.map((callToAction, idx) => (
           <Button
+            key={callToAction.key}
             type="link"
             to={callToAction.to}
             invert={idx === 0}

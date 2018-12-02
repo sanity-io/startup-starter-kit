@@ -96,12 +96,12 @@ const data = {
           title: 'About',
         },
         {
-          key: '1',
+          key: '2',
           to: '#',
           title: 'Jobs',
         },
         {
-          key: '1',
+          key: '3',
           to: '#',
           title: 'Blog',
         },

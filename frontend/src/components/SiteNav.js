@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Icon from './icon'
+import { zIndex } from './vars'
 
 const Root = styled.nav`
   ${({ invert, theme }) => `
@@ -21,6 +22,7 @@ const Container = styled.div`
   max-width: 48rem;
   margin: 0 auto;
   padding: 0.5rem;
+  position: relative;
 
   @media (min-width: 960px) {
     padding: 3.5rem 0;
@@ -31,6 +33,8 @@ const SiteTitle = styled.div`
   font-weight: 900;
   font-size: 24px;
   flex: 1;
+  z-index: ${zIndex.siteNav.isOpen};
+  position: relative;
 
   a {
     display: inline-block;
@@ -61,10 +65,6 @@ const Menu = styled.div`
   }
 
   @media (max-width: 599px) {
-    position: relative;
-  }
-
-  @media (max-width: 599px) {
     ol {
       display: none;
       position: absolute;
@@ -73,9 +73,20 @@ const Menu = styled.div`
       color: #000;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       right: 0;
+      left: 0;
+      z-index: ${zIndex.siteNav.isOpen};
+      padding: 1rem 0;
     }
 
-    &[data-is-expanded='true'] ol {
+    ol a {
+      padding: 0.5rem 2rem;
+    }
+
+    ol a:hover {
+      background: rgba(0, 127, 255, 0.05);
+    }
+
+    &[data-is-open='true'] ol {
       display: block;
     }
   }
@@ -105,6 +116,9 @@ const MenuOverflowButton = styled.button`
   line-height: 1;
   padding: 0.5rem;
   margin: 0;
+  outline: none;
+  z-index: ${zIndex.siteNav.isOpen};
+  position: relative;
 
   svg {
     vertical-align: top;
@@ -118,25 +132,33 @@ const MenuOverflowButton = styled.button`
 const SiteNav = ({
   siteTitle,
   menu,
-  isMenuExpanded,
-  onExpandMenu,
+  isMenuOpen,
+  onOpenMenu,
+  onCloseMenu,
   invert,
   theme,
 }) => (
   <Root theme={theme} invert={invert}>
     <Container>
       <SiteTitle>
-        <Link to="/">{siteTitle}</Link>
+        <Link to="/" onClick={onCloseMenu}>
+          {siteTitle}
+        </Link>
       </SiteTitle>
-      <Menu data-is-expanded={isMenuExpanded}>
+      <Menu data-is-open={isMenuOpen}>
         <ol>
           {menu.items.map(item => (
             <li key={item.key}>
-              <Link to={item.to}>{item.label}</Link>
+              <Link to={item.to} onClick={onCloseMenu}>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ol>
-        <MenuOverflowButton type="button" onClick={onExpandMenu}>
+        <MenuOverflowButton
+          type="button"
+          onClick={isMenuOpen ? onCloseMenu : onOpenMenu}
+        >
           <Icon symbol="hamburger" />
         </MenuOverflowButton>
       </Menu>

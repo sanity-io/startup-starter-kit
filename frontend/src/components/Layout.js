@@ -3,13 +3,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { zIndex } from './vars'
 
 const Container = styled.div`
   -webkit-font-smoothing: antialiased;
   ${props => `
     background: ${props.theme.background};
     color: ${props.theme.color};
+    ${
+      props.overlay
+        ? `
+      height: 100vh;
+      overflow: hidden;
+    `
+        : ''
+    }
   `};
+`
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: ${zIndex.overlay};
 `
 
 class Layout extends React.Component {
@@ -18,8 +37,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children, theme } = this.props
-
+    const { children, overlay, theme } = this.props
     return (
       <StaticQuery
         query={graphql`
@@ -42,7 +60,10 @@ class Layout extends React.Component {
             >
               <html lang="en" />
             </Helmet>
-            <Container theme={theme}>{children}</Container>
+            <Container theme={theme} overlay={overlay}>
+              {children}
+            </Container>
+            {overlay && <Overlay />}
           </>
         )}
       />
