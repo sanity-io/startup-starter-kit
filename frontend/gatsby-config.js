@@ -3,7 +3,8 @@ module.exports = {
     title: 'MyStartup',
     theme: {
       background: '#fff',
-      color: '#000',
+      color: '#234',
+      accent: '#04f',
     },
   },
   plugins: [
@@ -30,8 +31,8 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#04f',
+        theme_color: '#04f',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },

@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import Icon from './icon'
 
 const Root = styled.nav`
-  ${props => `
-    color: ${props.theme.background};
-    background: ${props.theme.color};
+  ${({ invert, theme }) => `
+    /* background: ${invert ? theme.color : theme.background}; */
+    color: ${invert ? theme.background : theme.color};
   `};
   line-height: 25px;
 
@@ -21,15 +21,26 @@ const Container = styled.div`
   max-width: 48rem;
   margin: 0 auto;
   padding: 0.5rem;
+
+  @media (min-width: 960px) {
+    padding: 3.5rem 0;
+  }
 `
 
 const SiteTitle = styled.div`
-  font-weight: 700;
+  font-weight: 900;
+  font-size: 24px;
   flex: 1;
 
   a {
     display: inline-block;
     padding: 0.5rem;
+  }
+
+  @media (min-width: 960px) {
+    a {
+      padding: 1rem;
+    }
   }
 `
 
@@ -74,6 +85,12 @@ const Menu = styled.div`
       display: flex;
     }
   }
+
+  @media (min-width: 960px) {
+    ol a {
+      padding: 1rem;
+    }
+  }
 `
 
 const MenuOverflowButton = styled.button`
@@ -98,8 +115,15 @@ const MenuOverflowButton = styled.button`
   }
 `
 
-const SiteNav = ({ siteTitle, menu, isMenuExpanded, onExpandMenu, theme }) => (
-  <Root theme={theme}>
+const SiteNav = ({
+  siteTitle,
+  menu,
+  isMenuExpanded,
+  onExpandMenu,
+  invert,
+  theme,
+}) => (
+  <Root theme={theme} invert={invert}>
     <Container>
       <SiteTitle>
         <Link to="/">{siteTitle}</Link>

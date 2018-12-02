@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../containers/Layout'
 import SiteNav from '../containers/SiteNav'
+import SiteFooter from '../containers/SiteFooter'
 import { ThemeContext } from '../contexts'
 
 const PricingPage = ({ data }) => (
@@ -8,6 +9,7 @@ const PricingPage = ({ data }) => (
     <Layout>
       <SiteNav />
       <h1>Pricing</h1>
+      <SiteFooter />
     </Layout>
   </ThemeContext.Provider>
 )

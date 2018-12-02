@@ -8,7 +8,7 @@ const tone = compose(lighten(0.1))
 
 const Root = styled.div`
   ${props => `
-    background: ${tone(props.theme.color)};
+    /* background: ${tone(props.theme.color)}; */
     color: ${props.theme.background};
   `};
 `
@@ -17,10 +17,20 @@ const Container = styled.div`
   max-width: 48em;
   margin: 0 auto;
   padding: 1rem;
+
+  @media (min-width: 960px) {
+    padding: 5rem 1rem;
+  }
 `
 
 const Headline = styled.h1`
   font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+
+  @media (min-width: 960px) {
+    font-size: 48px;
+  }
 `
 
 const Hero = ({ headline, intro, theme }) => (
