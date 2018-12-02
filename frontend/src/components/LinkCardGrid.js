@@ -1,44 +1,70 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import { fontScale, media, padding, width } from './vars'
 
 const Root = styled.div``
 
 const Container = styled.div`
+  box-sizing: border-box;
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: ${width.m};
+  padding: 0 calc(${padding.m} - ${padding.m});
+
+  @media (min-width: ${media.s.min}) {
+    padding: 0 calc(${padding.l} - ${padding.m});
+  }
+
+  @media (min-width: ${media.m.min}) {
+    padding: 0 calc(${padding.xl} - ${padding.m});
+  }
 `
 
 const Headline = styled.h2`
-  font-size: 24px;
-  padding: 2rem 1rem 0;
-  margin: 0 0 1rem;
+  box-sizing: border-box;
+  font-size: ${fontScale.title3.size};
+  line-height: ${fontScale.title3.lineHeight};
+  margin: 0 auto;
+  padding: ${padding.l} ${padding.m};
+  max-width: ${width.m};
+
+  @media (min-width: ${media.s.min}) {
+    padding: ${padding.l} ${padding.l} ${padding.m};
+  }
+
+  @media (min-width: ${media.m.min}) {
+    padding: ${padding.xl} ${padding.xl} ${padding.m};
+  }
 `
 
 const Grid = styled.div`
   list-style: none;
 
-  @media (min-width: 600px) {
+  @media (min-width: ${media.s.min}) {
+  }
+
+  @media (min-width: ${media.m.min}) {
     display: flex;
   }
 `
 
 const Card = styled.div`
-  padding: 1rem;
-
-  @media (min-width: 600px) {
-    flex: 1;
-  }
+  padding: ${padding.m};
 
   h3 {
-    font-size: inherit;
-    margin: 1em 0 0.5em;
+    font-size: ${fontScale.large.size};
+    line-height: ${fontScale.large.lineHeight};
+    margin: ${padding.m} 0 ${padding.s};
   }
 
   & > a {
     display: block;
     color: inherit;
     text-decoration: none;
+  }
+
+  @media (min-width: ${media.s.min}) {
+    flex: 1;
   }
 `
 
@@ -62,20 +88,24 @@ const CardMedia = styled.div`
 `
 
 const Footer = styled.div`
-  padding: 1rem 1rem 2rem;
+  padding: ${padding.m} ${padding.m} ${padding.xl};
   text-align: right;
+
+  @media (min-width: ${media.s.min}) {
+    padding: ${padding.m} ${padding.m} ${padding.xl};
+  }
 `
 
 const LinkCardGrid = ({ headline, items, moreLink, theme }) => (
   <Root>
+    <Headline>{headline}</Headline>
     <Container>
-      <Headline>{headline}</Headline>
       <Grid>
         {items.map(item => (
           <Card key={item.key}>
             <a href={item.to}>
               <CardMedia>
-                <img src={item.image.src} />
+                <img src={item.image.src} alt="" />
               </CardMedia>
               <h3>{item.title}</h3>
               <CardText>{item.text}</CardText>

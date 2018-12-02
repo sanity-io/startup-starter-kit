@@ -2,48 +2,55 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import { shade2 } from './colors'
+import { borderRadius, padding } from './vars'
 
 const StyledLinkButton = styled(Link)`
-  ${({ invert, theme }) => `
-    background: ${invert ? theme.color : theme.background};
-    color: ${invert ? theme.background : theme.color};
+  ${({ opts, theme }) => `
+    background: ${opts.invert ? theme.color : theme.background};
+    color: ${opts.invert ? theme.background : theme.color};
   `};
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: ${padding.m};
+  border-radius: ${borderRadius.m};
   /*  */
   display: inline-block;
   text-decoration: none;
+  line-height: 1;
   transition: box-shadow 200ms, transform 200ms;
 
   &:hover {
-    box-shadow: ${({ theme }) => `0 8px 20px ${shade2(theme)}`};
+    box-shadow: ${({ theme }) =>
+      `0 ${padding.s} ${padding.m} ${shade2(theme)}`};
     transform: translate3d(0, -1px, 0);
   }
 `
 
 const StyledButton = styled.button`
-  ${({ invert, theme }) => `
-    background: ${theme.background};
-    color: ${theme.color};
+  ${({ opts, theme }) => `
+    background: ${opts.invert ? theme.color : theme.background};
+    color: ${opts.invert ? theme.background : theme.color};
   `};
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: ${padding.m};
+  border-radius: ${borderRadius.m};
   /*  */
   -webkit-appearance: none;
   font: inherit;
+  line-height: 1;
   border: 0;
   margin: 0;
   transition: box-shadow 200ms, transform 200ms;
 
   &:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: ${({ theme }) =>
+      `0 ${padding.s} ${padding.m} ${shade2(theme)}`};
     transform: translate3d(0, -1px, 0);
   }
 `
 
 const Button = props => {
   const commonProps = {
-    invert: props.invert,
+    opts: {
+      invert: props.invert,
+    },
     theme: props.theme,
   }
 

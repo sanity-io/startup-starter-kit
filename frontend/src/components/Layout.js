@@ -3,15 +3,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+// import Guides from './Guides'
+import { shade1 } from './colors'
 import { zIndex } from './vars'
+
+import './base.css'
 
 const Container = styled.div`
   -webkit-font-smoothing: antialiased;
-  ${props => `
-    background: ${props.theme.background};
-    color: ${props.theme.color};
+  ${({ overlay, theme }) => `
+    background: ${theme.background};
+    color: ${theme.color};
     ${
-      props.overlay
+      overlay
         ? `
       height: 100vh;
       overflow: hidden;
@@ -27,7 +31,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => shade1(theme)};
   z-index: ${zIndex.overlay};
 `
 
@@ -60,10 +64,11 @@ class Layout extends React.Component {
             >
               <html lang="en" />
             </Helmet>
+            {/* <Guides /> */}
             <Container theme={theme} overlay={overlay}>
               {children}
             </Container>
-            {overlay && <Overlay />}
+            {overlay && <Overlay theme={theme} />}
           </>
         )}
       />

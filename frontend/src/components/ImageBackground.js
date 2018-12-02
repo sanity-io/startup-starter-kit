@@ -25,7 +25,7 @@ const data = {
 
 const ImageBackground = props => (
   <Root theme={props.theme}>
-    <img src={data.src} />
+    <img src={data.src} alt="" />
     <div>{props.children}</div>
   </Root>
 )

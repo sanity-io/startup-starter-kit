@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import { shade1 } from './colors'
+import { padding, width } from './vars'
 
 const Root = styled.div`
   ${({ theme }) => `
@@ -14,9 +15,10 @@ const Root = styled.div`
 `
 
 const Container = styled.div`
-  max-width: 48em;
+  box-sizing: border-box;
+  max-width: ${width.m};
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: ${padding.xl} ${padding.m};
   text-align: center;
 `
 
@@ -26,7 +28,7 @@ const Headline = styled.h2`
 `
 
 const Intro = styled.div`
-  margin: 1rem 0;
+  margin: ${padding.m} 0;
 `
 
 const CallToAction = ({ headline, callToActions, intro, theme }) => (

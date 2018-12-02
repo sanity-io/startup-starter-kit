@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { media, padding, width } from './vars'
 
 const Root = styled.footer`
   ${({ theme }) => `
@@ -11,11 +12,18 @@ const Root = styled.footer`
 `
 
 const Container = styled.div`
-  max-width: 60rem;
+  box-sizing: border-box;
+  max-width: ${width.m};
   margin: 0 auto;
+  padding: 0 ${padding.m};
 
-  @media (min-width: 600px) {
+  @media (min-width: ${media.s.min}) {
+    padding: 0 ${padding.l};
+  }
+
+  @media (min-width: ${media.m.min}) {
     display: flex;
+    padding: 0 ${padding.xl};
   }
 `
 
@@ -24,7 +32,7 @@ const Menu = styled.div`
 
   h2 {
     font-size: inherit;
-    padding: 2rem 1rem 0;
+    padding: ${padding.l} ${padding.m} 0;
     margin: 0;
   }
 
@@ -35,12 +43,12 @@ const Menu = styled.div`
 
   ul {
     list-style: none;
-    padding: 1rem;
+    padding: ${padding.m};
     margin: 0;
   }
 
   ul li {
-    margin: 0 0 0.5rem;
+    margin: 0 0 ${padding.s};
   }
 
   ul a {
@@ -57,7 +65,7 @@ const Menu = styled.div`
 `
 
 const Footer = styled.div`
-  padding: 1rem 1rem 2rem;
+  padding: ${padding.m} ${padding.m} ${padding.xl};
   text-align: center;
 
   svg {
@@ -69,14 +77,11 @@ const Footer = styled.div`
     color: inherit;
     font-size: 1.5rem;
     opacity: 0.7;
+    padding: ${padding.s};
   }
 
   a:hover {
     opacity: 1;
-  }
-
-  a + a {
-    margin-left: 0.5em;
   }
 `
 
@@ -100,16 +105,16 @@ const SiteFooter = ({ sections, theme }) => (
     </Container>
 
     <Footer>
-      <a href="#" title="GitHub">
+      <a href="/" title="GitHub">
         <FaGithub />
       </a>
-      <a href="#" title="Twitter">
+      <a href="/" title="Twitter">
         <FaTwitter />
       </a>
-      <a href="#" title="Instagram">
+      <a href="/" title="Instagram">
         <FaInstagram />
       </a>
-      <a href="#" title="Facebook">
+      <a href="/" title="Facebook">
         <FaFacebook />
       </a>
     </Footer>

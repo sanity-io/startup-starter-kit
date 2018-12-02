@@ -1,34 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
+import { media, padding } from './vars'
 
 const Root = styled.div`
-  margin: 1rem 0 5rem;
+  padding: 0 ${padding.m};
+  margin: 0 0 ${padding.m};
 
-  @media (min-width: 60rem) {
+  @media (min-width: ${media.s.min}) {
+    padding: 0 ${padding.l};
+  }
+
+  @media (min-width: ${media.m.min}) {
     display: flex;
+    padding: 0 ${padding.xl};
   }
 `
 
 const TextContainer = styled.div`
-  padding: 1rem 0;
+  padding: ${padding.m} 0;
 
-  @media (min-width: 60rem) {
+  @media (min-width: ${media.m.min}) {
     flex: 1;
     order: 1;
   }
 `
 
 const FigureContainer = styled.div`
-  @media (min-width: 60rem) {
+  @media (min-width: ${media.m.min}) {
     flex: 1;
     order: 2;
-    padding-left: 1rem;
+    padding-left: ${padding.l};
   }
 `
 
 const Headline = styled.h2`
   font-size: 1.25rem;
-  margin: 0 0 0.5rem;
+  margin: 0 0 ${padding.s};
 `
 
 const Text = styled.div``
@@ -52,7 +59,7 @@ const FeatureDetail = ({ title, text, image }) => (
   <Root>
     <FigureContainer>
       <Figure>
-        <img src={image.src} />
+        <img src={image.src} alt="" />
       </Figure>
     </FigureContainer>
     <TextContainer>

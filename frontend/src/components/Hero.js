@@ -1,43 +1,52 @@
-import { lighten } from 'polished'
-import { compose } from 'ramda'
 import React from 'react'
-import Button from './button'
 import styled from 'styled-components'
-
-const tone = compose(lighten(0.1))
+import Button from './Button'
+import { fontScale, media, padding, width } from './vars'
 
 const Root = styled.div`
   ${props => `
-    /* background: ${tone(props.theme.color)}; */
     color: ${props.theme.background};
   `};
 `
 
 const Container = styled.div`
-  max-width: 60rem;
+  box-sizing: border-box;
+  max-width: ${width.m};
   margin: 0 auto;
-  padding: 1rem;
+  padding: ${padding.m};
 
-  @media (min-width: 960px) {
-    padding: 5rem 1rem;
+  @media (min-width: ${media.s.min}) {
+    padding: ${padding.l};
+  }
+
+  @media (min-width: ${media.m.min}) {
+    padding: ${padding.xl};
   }
 `
 
 const Headline = styled.h1`
-  font-size: 27px;
+  font-size: ${fontScale.title2.size};
+  line-height: ${fontScale.title2.lineHeight};
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.2;
 
-  @media (min-width: 960px) {
-    font-size: 48px;
+  @media (min-width: 60rem) {
+    font-size: ${fontScale.title1.size};
+    line-height: ${fontScale.title1.lineHeight};
+    line-height: 1.1;
   }
+`
+
+const Intro = styled.div`
+  font-size: ${fontScale.large.size};
+  line-height: ${fontScale.large.lineHeight};
 `
 
 const Hero = ({ headline, intro, theme }) => (
   <Root theme={theme}>
     <Container>
       <Headline>{headline}</Headline>
-      <div>{intro}</div>
+      <Intro>{intro}</Intro>
       <div>
         <Button type="link" to="/start/" theme={theme}>
           Get started

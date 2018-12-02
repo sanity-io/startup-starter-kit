@@ -2,14 +2,12 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Icon from './icon'
-import { zIndex } from './vars'
+import { fontScale, media, padding, zIndex, width } from './vars'
 
 const Root = styled.nav`
   ${({ invert, theme }) => `
-    /* background: ${invert ? theme.color : theme.background}; */
     color: ${invert ? theme.background : theme.color};
   `};
-  line-height: 25px;
 
   a {
     color: inherit;
@@ -18,37 +16,53 @@ const Root = styled.nav`
 `
 
 const Container = styled.div`
+  box-sizing: border-box;
   display: flex;
-  max-width: 60rem;
+  max-width: ${width.m};
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: ${padding.m};
   position: relative;
 
-  @media (min-width: 960px) {
-    padding: 3.5rem 0;
+  @media (min-width: ${media.s.min}) {
+    padding: ${padding.l};
+  }
+
+  @media (min-width: ${media.m.min}) {
+    padding: ${padding.xl};
   }
 `
 
 const SiteTitle = styled.div`
   font-weight: 900;
-  font-size: 24px;
+  font-size: ${fontScale.large.size};
+  line-height: ${fontScale.large.lineHeight};
   flex: 1;
   z-index: ${zIndex.siteNav.isOpen};
   position: relative;
+  margin-top: -${padding.s};
+  margin-left: -${padding.s};
 
   a {
     display: inline-block;
-    padding: 0.5rem;
+    padding: ${padding.s};
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: ${media.s.min}) {
+    margin-top: -${padding.m};
+    margin-left: -${padding.m};
+
     a {
-      padding: 1rem;
+      padding: ${padding.m};
     }
   }
 `
 
 const Menu = styled.div`
+  margin-top: -${padding.s};
+  margin-right: -${padding.s};
+  font-size: ${fontScale.large.size};
+  line-height: ${fontScale.large.lineHeight};
+
   ol {
     list-style: none;
     padding: 0;
@@ -61,25 +75,25 @@ const Menu = styled.div`
 
   ol a {
     display: block;
-    padding: 0.5rem;
+    padding: ${padding.s};
   }
 
-  @media (max-width: 599px) {
+  @media (max-width: ${media.s.max}) {
     ol {
       display: none;
       position: absolute;
       top: 100%;
       background: ${({ theme }) => `${theme.background}`};
       color: ${({ theme }) => `${theme.color}`};
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 ${padding.m} rgba(0, 0, 0, 0.1);
       right: 0;
       left: 0;
       z-index: ${zIndex.siteNav.isOpen};
-      padding: 1rem 0;
+      padding: ${padding.m} 0;
     }
 
     ol a {
-      padding: 0.5rem 2rem;
+      padding: ${padding.s} ${padding.l};
     }
 
     ol a:hover {
@@ -92,15 +106,27 @@ const Menu = styled.div`
     }
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: ${media.s.min}) {
     ol {
       display: flex;
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: ${media.s.min}) {
+    margin-top: -${padding.m};
+    margin-right: -${padding.s};
+
     ol a {
-      padding: 1rem;
+      padding: ${padding.m} ${padding.s};
+    }
+  }
+
+  @media (min-width: ${media.m.min}) {
+    margin-top: -${padding.m};
+    margin-right: -${padding.s};
+
+    ol a {
+      padding: ${padding.m} ${padding.s};
     }
   }
 `
@@ -115,7 +141,7 @@ const MenuOverflowButton = styled.button`
   color: inherit;
   font-size: 25px;
   line-height: 1;
-  padding: 0.5rem;
+  padding: ${padding.s};
   margin: 0;
   outline: none;
   z-index: ${zIndex.siteNav.isOpen};
@@ -125,7 +151,7 @@ const MenuOverflowButton = styled.button`
     vertical-align: top;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: ${media.s.min}) {
     display: none;
   }
 `

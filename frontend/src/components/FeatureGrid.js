@@ -1,26 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
+import { fontScale, media, padding, width } from './vars'
 
-const Root = styled.div`
-  background: #eee;
-`
+const Root = styled.div``
 
 const Headline = styled.h2`
-  font-size: 24px;
-  max-width: 60rem;
+  box-sizing: border-box;
+  font-size: ${fontScale.title3.size};
+  line-height: ${fontScale.title3.lineHeight};
   margin: 0 auto;
-  padding: 2rem 1rem 1rem;
+  padding: ${padding.l} ${padding.m};
+  max-width: ${width.m};
+
+  @media (min-width: ${media.s.min}) {
+    padding: ${padding.l} ${padding.l} ${padding.m};
+  }
+
+  @media (min-width: ${media.m.min}) {
+    padding: ${padding.xl} ${padding.xl} ${padding.m};
+  }
 `
 
 const Container = styled.div`
-  background: #eee;
-  padding: 1rem 0;
-  max-width: 60rem;
+  box-sizing: border-box;
+  padding: 0 calc(${padding.m} - ${padding.m});
+  max-width: ${width.m};
   margin: 0 auto;
 
-  @media (min-width: 600px) {
+  @media (min-width: ${media.s.min}) {
+    padding: 0 calc(${padding.l} - ${padding.m});
+  }
+
+  @media (min-width: ${media.m.min}) {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 calc(${padding.xl} - ${padding.m});
   }
 `
 
@@ -29,7 +43,7 @@ const Item = styled.div`
   padding: 1rem;
   box-sizing: border-box;
 
-  @media (min-width: 600px) {
+  @media (min-width: 62rem) {
     width: 33.333%;
   }
 `
@@ -37,7 +51,7 @@ const Item = styled.div`
 const ItemIcon = styled.div`
   width: 48px;
   height: 48px;
-  background: #099;
+  background: ${({ theme }) => theme.accent};
   font-size: 0;
   border-radius: 50%;
 `
@@ -53,13 +67,13 @@ const ItemTitle = styled.h3`
   margin: 0 0 0.5rem;
 `
 
-const FeatureGrid = ({ headline, items }) => (
+const FeatureGrid = ({ headline, items, theme }) => (
   <Root>
     <Headline>{headline}</Headline>
     <Container>
       {items.map(item => (
         <Item key={item.key}>
-          <ItemIcon>Icon</ItemIcon>
+          <ItemIcon theme={theme}>Icon</ItemIcon>
           <ItemContent>
             <ItemTitle>{item.title}</ItemTitle>
             <div>{item.text}</div>

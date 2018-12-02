@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { borderRadius, fontScale, media, padding, width } from './vars'
 
 const Root = styled.div`
   overflow: hidden;
@@ -7,9 +8,20 @@ const Root = styled.div`
 `
 
 const Headline = styled.h2`
-  max-width: 60rem;
+  box-sizing: border-box;
+  font-size: ${fontScale.title3.size};
+  line-height: ${fontScale.title3.lineHeight};
   margin: 0 auto;
-  padding: 2rem 1rem 0;
+  padding: ${padding.l} ${padding.m};
+  max-width: ${width.m};
+
+  @media (min-width: ${media.s.min}) {
+    padding: ${padding.l} ${padding.l} ${padding.m};
+  }
+
+  @media (min-width: ${media.m.min}) {
+    padding: ${padding.xl} ${padding.xl} ${padding.m};
+  }
 `
 
 const ScrollContainer = styled.div`
@@ -27,27 +39,25 @@ const ItemWrapper = styled.div`
   display: inline-block;
   scroll-snap-align: center;
   width: 100%;
-  max-width: 30rem;
+  max-width: ${width.s};
 
-  @media (min-width: 62rem) {
+  @media (min-width: ${media.m.min}) {
     &:first-child {
-      padding-left: calc((100% - 60rem) / 2);
-      max-width: calc(((100% - 60rem) / 2) + 30rem);
+      padding-left: calc((100% - ${width.m}) / 2);
     }
 
     &:last-child {
-      padding-right: calc((100% - 60rem) / 2);
-      max-width: calc(((100% - 60rem) / 2) + 30rem);
+      padding-right: calc((100% - ${width.m}) / 2);
     }
   }
 `
 
 const Card = styled.div`
   background: #eee;
-  margin: 2rem 1rem;
-  border-radius: 12px;
+  margin: ${padding.l} ${padding.m} ${padding.xl};
+  border-radius: ${borderRadius.xl};
   text-align: center;
-  padding: 1rem;
+  padding: ${padding.m};
 `
 
 const Testimonial = props => (
