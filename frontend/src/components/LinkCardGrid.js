@@ -6,7 +6,7 @@ const Root = styled.div``
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 48rem;
+  max-width: 60rem;
 `
 
 const Headline = styled.h2`

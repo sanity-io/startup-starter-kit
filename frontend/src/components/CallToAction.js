@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import { shade1 } from './colors'
 
 const Root = styled.div`
   ${({ theme }) => `
-    background: ${theme.background};
-    color: ${theme.color};
+    background: ${theme.accent};
+    color: ${theme.background};
   `};
   ${({ theme }) => `
-    border-top: 1px solid ${theme.color};
+    border-top: 1px solid ${shade1(theme)};
   `};
 `
 
@@ -28,7 +29,7 @@ const Intro = styled.div`
   margin: 1rem 0;
 `
 
-const GetStarted = ({ headline, callToActions, intro, theme }) => (
+const CallToAction = ({ headline, callToActions, intro, theme }) => (
   <Root theme={theme}>
     <Container>
       <Headline>{headline}</Headline>
@@ -50,4 +51,4 @@ const GetStarted = ({ headline, callToActions, intro, theme }) => (
   </Root>
 )
 
-export default GetStarted
+export default CallToAction

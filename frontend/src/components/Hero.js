@@ -14,7 +14,7 @@ const Root = styled.div`
 `
 
 const Container = styled.div`
-  max-width: 48em;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 1rem;
 
@@ -26,7 +26,7 @@ const Container = styled.div`
 const Headline = styled.h1`
   font-size: 27px;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.1;
 
   @media (min-width: 960px) {
     font-size: 48px;

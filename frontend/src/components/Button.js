@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import { shade2 } from './colors'
 
 const StyledLinkButton = styled(Link)`
   ${({ invert, theme }) => `
@@ -15,7 +16,7 @@ const StyledLinkButton = styled(Link)`
   transition: box-shadow 200ms, transform 200ms;
 
   &:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: ${({ theme }) => `0 8px 20px ${shade2(theme)}`};
     transform: translate3d(0, -1px, 0);
   }
 `

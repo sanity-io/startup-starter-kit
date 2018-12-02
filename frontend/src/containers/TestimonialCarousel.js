@@ -3,6 +3,7 @@ import TestimonialCarousel from '../components/TestimonialCarousel'
 import { ThemeContext } from '../contexts'
 
 const data = {
+  headline: 'What our users say',
   testimonials: [
     {
       key: 'foo',

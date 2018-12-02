@@ -2,19 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Root = styled.div`
-  display: flex;
   margin: 1rem 0 5rem;
+
+  @media (min-width: 60rem) {
+    display: flex;
+  }
 `
 
 const TextContainer = styled.div`
-  flex: 1;
-  padding-right: 1rem;
-  padding-top: 1rem;
+  padding: 1rem 0;
+
+  @media (min-width: 60rem) {
+    flex: 1;
+    order: 1;
+  }
 `
 
 const FigureContainer = styled.div`
-  flex: 1;
-  padding-left: 1rem;
+  @media (min-width: 60rem) {
+    flex: 1;
+    order: 2;
+    padding-left: 1rem;
+  }
 `
 
 const Headline = styled.h2`
@@ -41,15 +50,15 @@ const Figure = styled.div`
 
 const FeatureDetail = ({ title, text, image }) => (
   <Root>
-    <TextContainer>
-      <Headline>{title}</Headline>
-      <Text>{text}</Text>
-    </TextContainer>
     <FigureContainer>
       <Figure>
         <img src={image.src} />
       </Figure>
     </FigureContainer>
+    <TextContainer>
+      <Headline>{title}</Headline>
+      <Text>{text}</Text>
+    </TextContainer>
   </Root>
 )
 

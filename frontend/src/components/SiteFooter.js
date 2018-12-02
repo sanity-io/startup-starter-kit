@@ -11,18 +11,26 @@ const Root = styled.footer`
 `
 
 const Container = styled.div`
-  max-width: 48rem;
+  max-width: 60rem;
   margin: 0 auto;
-  display: flex;
+
+  @media (min-width: 600px) {
+    display: flex;
+  }
 `
 
 const Menu = styled.div`
-  flex: 1;
+  text-align: center;
 
   h2 {
     font-size: inherit;
     padding: 2rem 1rem 0;
     margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   ul {
@@ -35,14 +43,16 @@ const Menu = styled.div`
     margin: 0 0 0.5rem;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  ul a {
     opacity: 0.7;
   }
 
-  a:hover {
+  ul a:hover {
     opacity: 1;
+  }
+
+  @media (min-width: 600px) {
+    flex: 1;
   }
 `
 
@@ -50,11 +60,22 @@ const Footer = styled.div`
   padding: 1rem 1rem 2rem;
   text-align: center;
 
-  & svg {
-    font-size: 1.5rem;
+  svg {
+    vertical-align: top;
   }
 
-  & svg + svg {
+  a {
+    display: inline-block;
+    color: inherit;
+    font-size: 1.5rem;
+    opacity: 0.7;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+
+  a + a {
     margin-left: 0.5em;
   }
 `
@@ -79,10 +100,18 @@ const SiteFooter = ({ sections, theme }) => (
     </Container>
 
     <Footer>
-      <FaGithub />
-      <FaTwitter />
-      <FaInstagram />
-      <FaFacebook />
+      <a href="#" title="GitHub">
+        <FaGithub />
+      </a>
+      <a href="#" title="Twitter">
+        <FaTwitter />
+      </a>
+      <a href="#" title="Instagram">
+        <FaInstagram />
+      </a>
+      <a href="#" title="Facebook">
+        <FaFacebook />
+      </a>
     </Footer>
   </Root>
 )

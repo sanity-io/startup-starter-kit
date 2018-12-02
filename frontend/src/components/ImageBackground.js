@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Root = styled.div`
-  background: #222;
+  background: ${({ theme }) => `${theme.color}`};
   position: relative;
 
   & > img {
@@ -24,7 +24,7 @@ const data = {
 }
 
 const ImageBackground = props => (
-  <Root>
+  <Root theme={props.theme}>
     <img src={data.src} />
     <div>{props.children}</div>
   </Root>

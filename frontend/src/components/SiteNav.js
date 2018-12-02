@@ -19,7 +19,7 @@ const Root = styled.nav`
 
 const Container = styled.div`
   display: flex;
-  max-width: 48rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 0.5rem;
   position: relative;
@@ -69,8 +69,8 @@ const Menu = styled.div`
       display: none;
       position: absolute;
       top: 100%;
-      background: #fff;
-      color: #000;
+      background: ${({ theme }) => `${theme.background}`};
+      color: ${({ theme }) => `${theme.color}`};
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       right: 0;
       left: 0;
@@ -83,7 +83,8 @@ const Menu = styled.div`
     }
 
     ol a:hover {
-      background: rgba(0, 127, 255, 0.05);
+      background: ${({ theme }) => `${theme.accent}`};
+      color: ${({ theme }) => `${theme.background}`};
     }
 
     &[data-is-open='true'] ol {
@@ -145,7 +146,7 @@ const SiteNav = ({
           {siteTitle}
         </Link>
       </SiteTitle>
-      <Menu data-is-open={isMenuOpen}>
+      <Menu data-is-open={isMenuOpen} theme={theme}>
         <ol>
           {menu.items.map(item => (
             <li key={item.key}>

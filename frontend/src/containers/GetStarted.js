@@ -1,5 +1,5 @@
 import React from 'react'
-import GetStarted from '../components/GetStarted'
+import CallToAction from '../components/CallToAction'
 import { ThemeContext } from '../contexts'
 
 const data = {
@@ -18,7 +18,7 @@ class GetStartedContainer extends React.Component {
   static contextType = ThemeContext
 
   render() {
-    return <GetStarted {...data} {...this.props} theme={this.context} />
+    return <CallToAction {...data} {...this.props} theme={this.context} />
   }
 }
 

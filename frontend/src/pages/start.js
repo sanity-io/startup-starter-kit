@@ -28,6 +28,7 @@ export const query = graphql`
         theme {
           background
           color
+          accent
         }
       }
     }

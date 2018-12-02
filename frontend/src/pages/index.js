@@ -1,10 +1,11 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import LatestUpdates from '../containers/LatestUpdates'
+import FeatureGrid from '../containers/FeatureGrid'
 import GetStarted from '../containers/GetStarted'
 import Hero from '../containers/Hero'
 import ImageBackground from '../components/ImageBackground'
 import Layout from '../containers/Layout'
+import LatestUpdates from '../containers/LatestUpdates'
 import SiteFooter from '../containers/SiteFooter'
 import SiteNav from '../containers/SiteNav'
 import TestimonialCarousel from '../containers/TestimonialCarousel'
@@ -16,7 +17,7 @@ const IndexPage = ({ data }) => (
     {modalStackDepth => (
       <ThemeContext.Provider value={data.site.siteMetadata.theme}>
         <Layout overlay={modalStackDepth > 0}>
-          <ImageBackground>
+          <ImageBackground theme={data.site.siteMetadata.theme}>
             <SiteNav invert />
             <Hero
               headline="My awesome headline that explains the whole shebang"
@@ -29,16 +30,7 @@ const IndexPage = ({ data }) => (
             />
           </ImageBackground>
           <LatestUpdates />
-          <h2
-            style={{
-              maxWidth: 864,
-              margin: '0 auto',
-              padding: '1rem',
-              textAlign: 'center',
-            }}
-          >
-            Testimonials
-          </h2>
+          <FeatureGrid />
           <TestimonialCarousel />
           <GetStarted />
           <SiteFooter />
