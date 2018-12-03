@@ -13,7 +13,7 @@ const sharedSections = {
   ],
   preview: {
     select: {
-      title: 'referencedSection.heading',
+      title: 'referencedSection.title',
       subtitle: 'referencedSection._type'
     }
   }

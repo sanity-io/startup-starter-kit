@@ -7,8 +7,6 @@ export default {
       name: 'title',
       type: 'string',
       title: 'title',
-      options: []
-    },
-
+    }
   ]
 }

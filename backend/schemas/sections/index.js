@@ -1,3 +1,5 @@
 export { default as article } from './article'
 export { default as hero } from './hero'
+export { default as featureCollection } from './featureCollection'
 export { default as navigation } from './navigation'
+export { default as testimonialCollection } from './testimonialCollection'

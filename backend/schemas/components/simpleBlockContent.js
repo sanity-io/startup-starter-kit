@@ -5,6 +5,9 @@ export default {
   of: [
     {
       type: 'block'
+    },
+    {
+      type: 'testimonial'
     }
   ]
 }

@@ -48,6 +48,7 @@ export default () =>
         .title("Website")
         .id('website')
         .items([
+          /* S.documentTypeListItem('navigation').title('Navigation'), */
           S.documentTypeListItem('route').title('Routes') ,
           S.documentTypeListItem('page').title('Pages'),
           sectionItems

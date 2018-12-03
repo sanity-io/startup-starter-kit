@@ -4,9 +4,9 @@ export default {
   title: 'Hero',
   fields: [
     {
-      name: 'heading',
+      name: 'title',
       type: 'string',
-      title: 'Heading',
+      title: 'Title',
     },
     {
       name: 'tagLine',

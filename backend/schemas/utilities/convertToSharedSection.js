@@ -7,11 +7,12 @@ export default schema => ({
     select: {
       heading: 'heading',
       title: 'title',
+      name: 'name',
       type: '_type'
     },
-    prepare({ title, heading, type }) {
+    prepare({ title, heading, name, type }) {
       return {
-        title: title || heading || 'No title',
+        title: title || heading || name || 'No title',
         subtitle: type
       }
     }

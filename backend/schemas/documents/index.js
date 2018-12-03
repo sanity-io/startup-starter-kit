@@ -1,5 +1,6 @@
 export { default as agent } from './agent'
 export { default as companyInfo } from './companyInfo'
+export { default as feature } from './feature'
 export { default as fulfillment } from './fulfillment'
 export { default as intent } from './intent'
 export { default as page } from './page'

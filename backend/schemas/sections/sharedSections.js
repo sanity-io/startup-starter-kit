@@ -15,11 +15,12 @@ export default {
     select: {
       title: 'referencedSection.title',
       heading: 'referencedSection.heading',
+      name: 'referencedSection.name',
       subtitle: 'referencedSection._type'
     },
-    prepare({title, heading, subtitle}) {
+    prepare({title, heading, name, subtitle}) {
       return {
-        title: title || heading,
+        title: title || heading || name || 'No title',
         subtitle
       }
     }
