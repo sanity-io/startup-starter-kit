@@ -1,7 +1,9 @@
+import Route from 'react-icons/lib/md/link'
 export default {
   name: 'route',
   type: 'document',
   title: 'Route',
+  icon: Route,
   fields: [
     {
       name: 'title',

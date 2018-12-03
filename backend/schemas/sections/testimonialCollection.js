@@ -1,7 +1,10 @@
+import ChatBubble from 'react-icons/lib/md/chat-bubble'
+
 export default {
   name: 'testimonialCollection',
   type: 'object',
   title: 'TestimonialCollection',
+  icon: ChatBubble,
   fields: [
     {
       name: 'title',

@@ -1,5 +1,6 @@
 
 import S from "@sanity/desk-tool/structure-builder";
+import Repeat from 'react-icons/lib/md/repeat'
 import * as components from './schemas/components/index'
 import * as sections from './schemas/sections/index'
 const hiddenTypes = [
@@ -16,6 +17,7 @@ const hiddenDocTypes = listItem => !hiddenTypes.includes(listItem.getId())
 
 const sectionItems = S.listItem()
   .title('Shared sections')
+  .icon(Repeat)
   .child(
     S.list("Shared sections")
       .id('shared-sections')

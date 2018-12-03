@@ -1,3 +1,4 @@
+import Repeat from 'react-icons/lib/md/repeat'
 import * as sections from './index'
 
 export default {

@@ -1,8 +1,10 @@
+import ChatBubble from 'react-icons/lib/md/chat-bubble'
 import TwitterEmbed from '../../previewComponents/twitterEmbed'
 export default {
   name: 'testimonial',
   type: 'object',
   title: 'Testimonial',
+  icon: ChatBubble,
   fields: [
     {
       name: 'name',

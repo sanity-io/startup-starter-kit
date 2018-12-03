@@ -1,7 +1,10 @@
+import Features from 'react-icons/lib/fa/tasks'
+
 export default {
   name: 'feature',
   type: 'document',
   title: 'Feature',
+  icon: Features,
   fields: [
     {
       name: 'title',
