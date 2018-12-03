@@ -26,7 +26,8 @@
     "axios": "^0.18.0",
     "prop-types": "^15.6",
     "react": "^16.2",
-    "react-dom": "^16.2"
+    "react-dom": "^16.2",
+    "react-twitter-embed": "^2.0.4"
   },
   "devDependencies": {}
 }
