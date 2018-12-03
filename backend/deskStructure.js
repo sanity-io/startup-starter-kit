@@ -2,7 +2,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import * as components from './schemas/components/index'
 import * as sections from './schemas/sections/index'
-console.log(Object.values(components))
 const hiddenTypes = [
   "companyInfo",
   "page",
@@ -13,7 +12,6 @@ const hiddenTypes = [
   ...Object.values(components).reduce((acc, {name}) => ([...acc, name, `shared.${name}`]), []),
   ...Object.values(sections).reduce((acc, {name}) => ([...acc, name, `shared.${name}`]), [])
 ]
-console.log({hiddenTypes})
 const hiddenDocTypes = listItem => !hiddenTypes.includes(listItem.getId())
 
 const sectionItems = S.listItem()

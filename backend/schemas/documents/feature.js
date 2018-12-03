@@ -27,7 +27,6 @@ export default {
     },
     prepare({title, description, illustration}) {
       const block = (description || []).find(block => block._type === 'block')
-      console.log(title, description, illustration)
       return {
         title: title,
         subtitle: block
