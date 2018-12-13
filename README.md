@@ -32,7 +32,7 @@ This setup lets you use Sanity as a website builder with sections that can be sh
 
 ![Page builder](https://cdn.sanity.io/images/3do82whm/production/5cf34a82f25357642866cd0a1dfaaee05f0a9e47-2040x1846.png)
 
-To demonstrate how you can create your own custom input types, we have included a “brand generator” that lets you generate a company name from our [Crunchbase machine learned company name generator API](https://startup-name.now.sh/api/v1/names/random) (hosted on [Zeit’s `now`](https://zeit.co/now)). You can also generate a random SVG logo, and set brand colors which will be used on the Gatsby frontend.
+To demonstrate how you can create your own custom input types, we have included a toy “brand generator” that makes yp a company name using our [silly name generator API trained on the names of 40k funded startups](https://startup-name.now.sh/api/v1/names/random) (hosted on [Zeit’s `now`](https://zeit.co/now)). You can also generate a random SVG logo, and set brand colors that will be used on the Gatsby frontend.
 
 ![Brand generator](https://cdn.sanity.io/images/3do82whm/production/81ac4bc3d08ac6ea0bfe5aad24837fcc650fbf04-2038x1844.png)
 
