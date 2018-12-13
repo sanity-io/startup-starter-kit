@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import Icon from "./Icon"
+
 import { fontScale, media, padding, width, zIndex } from "./vars"
 
 const Root = styled.nav`
