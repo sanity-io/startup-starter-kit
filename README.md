@@ -84,10 +84,8 @@ npm run graphql-deploy
 ### Deploy the studio
 
 ```sh
-npm run studuio-deploy
+npm run studio-deploy
 ```
-
-! 
 
 # Frontend: Gatsby
 
