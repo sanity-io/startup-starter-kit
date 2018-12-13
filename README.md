@@ -7,7 +7,7 @@
 - [Netlify Hosting](https://netlify.com)
 - [Serverless Lambdas on Netlify](https://www.netlify.com/docs/functions/)
 - [Google Assistant Chatbot](https://dialogflow.com)
-– Rich text content on [Portable Text](https://www.portabletext.org)
+- Rich text content on [Portable Text](https://www.portabletext.org)
 - [LSTM Driven Startup Name Generator API on Zeit’s Now](https://zeit.co/now)
 – [Sanity powered GraphQL API](https://www.sanity.io/help/graphql-beta)
 
