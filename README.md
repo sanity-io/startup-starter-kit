@@ -57,6 +57,7 @@ npm install
 
 ```sh
 npm run init-sanity
+npm run graphql-deploy
 ```
 
 :warning: This project runs on a tagged release of Sanity Studio. Do not run `sanity upgrade`. Keep an eye in our [Slack community](https://slack.sanity.io), or this min repo to get notice of the upgrade path. 
