@@ -1,13 +1,8 @@
-import {
-  StaticQuery,
-  graphql
-} from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import React from 'react'
-import {
-  ThemeContext
-} from '../contexts'
+import { ThemeContext } from '../contexts'
 
-const query = graphql `
+const query = graphql`
   {
     sanity {
       company: CompanyInfo(id: "company-info") {
@@ -29,7 +24,7 @@ const query = graphql `
   }
 `
 
-function transformColorSchemeToTheme({
+function transformColorSchemeToTheme ({
   color = {},
   accent = {},
   background = {}
@@ -41,31 +36,19 @@ function transformColorSchemeToTheme({
   }
 }
 
-const ThemeProvider = ({
-  children
-}) => ( <
-  StaticQuery query = {
-    query
-  }
-  render = {
-    data => {
-      const {
-        brand: {
-          colorScheme = {}
-        } = {}
-      } = data.sanity.company || {}
+const ThemeProvider = ({ children }) => (
+  <StaticQuery
+    query={query}
+    render={data => {
+      const { brand: { colorScheme = {} } = {} } = data.sanity.company || {}
       const theme = transformColorSchemeToTheme(colorScheme)
 
-      return ( <
-        ThemeContext.Provider value = {
-          theme
-        } > {
-          typeof children === 'function' ? children(theme) : children
-        } <
-        /ThemeContext.Provider>
+      return (
+        <ThemeContext.Provider value={theme}>
+          {typeof children === 'function' ? children(theme) : children}
+        </ThemeContext.Provider>
       )
-    }
-  }
+    }}
   />
 )
 
