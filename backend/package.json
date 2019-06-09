@@ -30,7 +30,7 @@
     "@sanity/desk-tool": "0.136.3-gql-rtb.417+3de58369f",
     "@sanity/logo-generator": "^0.0.1",
     "@sanity/vision": "0.136.3-gql-rtb.417+3de58369f",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "prop-types": "^15.6",
     "react": "^16.2",
     "react-dom": "^16.2",
